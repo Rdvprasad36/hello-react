@@ -5,27 +5,39 @@ function App() {
   const tasks = [
     {
       id: 1,
-      title: 'Task 1',
-      dueDate: '2024-07-01',
+      title: 'Build the website with static content',
+      dueDate: '2024-04-10',
       completedAtDate: '',
-      assigneeName: 'Alice',
+      assigneeName: 'Rohit S',
       status: 'Pending',
+      project: 'Graduation Final Year Project (Revamp College Website)',
     },
     {
       id: 2,
-      title: 'Task 2',
-      dueDate: '',
-      completedAtDate: '2024-06-20',
-      assigneeName: 'Bob',
-      status: 'Done',
+      title: 'Add a blog',
+      dueDate: '2024-03-22',
+      completedAtDate: '',
+      assigneeName: 'Rohit M',
+      status: 'Pending',
+      project: 'Graduation Final Year Project (Revamp College Website)',
     },
     {
       id: 3,
-      title: 'Task 3',
-      dueDate: '2024-07-05',
-      completedAtDate: '',
-      assigneeName: 'Charlie',
-      status: 'Pending',
+      title: 'Design the mockup',
+      dueDate: '',
+      completedAtDate: '2024-04-10',
+      assigneeName: 'Rohit M',
+      status: 'Done',
+      project: 'Graduation Final Year Project (Revamp College Website)',
+    },
+    {
+      id: 4,
+      title: 'Get the approval from principal',
+      dueDate: '',
+      completedAtDate: '2024-04-20',
+      assigneeName: 'Ajay S',
+      status: 'Done',
+      project: 'Graduation Final Year Project (Revamp College Website)',
     },
   ]
 
@@ -34,30 +46,44 @@ function App() {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Pending Tasks</h1>
-      <div>
-        {pendingTasks.map((task) => (
-          <TaskCard
-            key={task.id}
-            title={task.title}
-            dueDate={task.dueDate}
-            assigneeName={task.assigneeName}
-            status={task.status}
-          />
-        ))}
-      </div>
-
-      <h1 className="text-2xl font-bold mt-8 mb-4">Done Tasks</h1>
-      <div>
-        {doneTasks.map((task) => (
-          <TaskCard
-            key={task.id}
-            title={task.title}
-            completedAtDate={task.completedAtDate}
-            assigneeName={task.assigneeName}
-            status={task.status}
-          />
-        ))}
+      <h1 className="text-3xl font-bold mb-6">Smarter Tasks</h1>
+      <h2 className="text-xl mb-6">
+        Project: Graduation Final Year Project (Revamp College Website)
+      </h2>
+      <div className="flex gap-8">
+        <div className="flex-1">
+          <h3 className="text-2xl font-semibold mb-4">Pending</h3>
+          <div>
+            {pendingTasks.map((task) => (
+              <TaskCard
+                key={task.id}
+                title={task.title}
+                dueDate={task.dueDate}
+                assigneeName={task.assigneeName}
+                status={task.status}
+                project={task.project}
+              />
+            ))}
+            <button className="mt-4 w-full text-left text-gray-500 hover:text-gray-700">
+              + New task
+            </button>
+          </div>
+        </div>
+        <div className="flex-1">
+          <h3 className="text-2xl font-semibold mb-4">Done</h3>
+          <div>
+            {doneTasks.map((task) => (
+              <TaskCard
+                key={task.id}
+                title={task.title}
+                completedAtDate={task.completedAtDate}
+                assigneeName={task.assigneeName}
+                status={task.status}
+                project={task.project}
+              />
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   )
